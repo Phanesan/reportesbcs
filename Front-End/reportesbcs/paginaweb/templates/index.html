@@ -1,15 +1,149 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     {% load static %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
-<body>
-    
+<body style="background-color: rgb(246, 253, 212);">
+
+    <nav class="navbar navbar-expand-lg b* fw-bold" style="background-color:#FFFB96; ">
+        <div class="container-fluid">
+          <img src="{%static 'images/logo.png'%}" alt="Logo" width="70" height="74" class="d-inline-block align-text-top">
+          <a class="navbar-brand" href="#">CalleAlDía</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav ms auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link text-decoration-underline " href="#">Registrar</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-decoration-underline" href="#">Iniciar Sesión</a>
+                  </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+
+    <div style="padding: 20px">
+        <p class="fs-2 fw-bold bg-white p-2 text-dark bg-opacity-50 text-center">
+            CalleAlDía
+        </p>
+        <p class="fs-4 fw-bold bg-white p-2 text-dark bg-opacity-50 text-center">
+            CalleAlDía es una plataforma web donde los usuarios podrán reportar problemas viales, tales como problemas viales o de infraestructura urbana, 
+            permitiendo notificar anomalías como baches, señalización defectuosa, desperfectos en aceras o cualquier otro problema relacionado con la seguridad y 
+            comodidad en las vías públicas fomentando la participación ciudadana en la mejora de la infraestructura urbana 
+        </p>
+    </div>
+
+<div class="paginaCentral">
+    <div id="carouselExampleCaptions" class="carousel slide" style="padding: 40px;">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4" aria-label="Slide 5"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="5" aria-label="Slide 6"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="6" aria-label="Slide 1"></button>
+        </div>
+        <div class="carousel-inner">
+          <!-- #Baches -->
+          <div class="carousel-item active">
+            <img src="{%static 'images/baches.jpg'%}" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <p class="fs-2 fw-bold bg-white p-2 text-dark bg-opacity-50">
+                    Reparación de baches
+                </p>
+            </div>
+          </div>
+          <!-- #Acera -->
+          <div class="carousel-item">
+            <img src="{%static 'images/mantenimiento.jpeg'%}" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <p class="fs-2 fw-bold bg-white p-2 text-dark bg-opacity-50">
+                    Reconstrucción de acera
+                </p>
+            </div>
+          </div>
+          <!-- #Señalización dudosa -->
+          <div class="carousel-item">
+            <img src="{%static 'images/señalizacionrara.png'%}" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <p class="fs-2 fw-bold bg-white p-2 text-dark bg-opacity-50">
+                    Señalizaciones dudosas
+                </p>
+            </div>
+          </div>
+          <!-- #Alcantarillado -->
+          <div class="carousel-item">
+            <img src="{%static 'images/alcantarillado.jpeg'%}" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <p class="fs-2 fw-bold bg-white p-2 text-dark bg-opacity-50">
+                    Problemas de alcantarillado
+                </p>
+            </div>
+          </div>
+          <!-- #Problemas de alumbrado -->
+          <div class="carousel-item">
+            <img src="{%static 'images/alumbrado.jpg'%}" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <p class="fs-2 fw-bold bg-white p-2 text-dark bg-opacity-50">
+                    Problemas de alumbrado
+                </p>
+            </div>
+          </div>
+          <!-- #Acumulacion de basura -->
+          <div class="carousel-item">
+            <img src="{%static 'images/basura.jpg'%}" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <p class="fs-2 fw-bold bg-white p-2 text-dark bg-opacity-50">
+                    Acumulación de basura
+                </p>
+            </div>
+          </div>
+          <!-- #Semaforos defectuosos-->
+          <div class="carousel-item">
+            <img src="{%static 'images/semaforos.png'%}" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <p class="fs-2 fw-bold bg-white p-2 text-dark bg-opacity-50">
+                    Semaforos defectuosos
+                </p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      
+      <p class="fs-6 p-2 text-dark text-center">
+        Todos los textos, imágenes, gráficos y otros contenidos de este sitio web están protegidos por derechos de autor © 2023 ANX Corporation. Todos los derechos reservados.
+        Queda estrictamente prohibido cualquier uso, reproducción o distribución no autorizados de los materiales de este sitio web, ya sea total o parcialmente, sin el consentimiento previo por escrito del propietario. 
+        El contenido de este sitio web está destinado únicamente a fines informativos y no constituye asesoramiento profesional o recomendaciones específicas. El uso que usted haga de la información encontrada en este sitio web queda bajo su propio riesgo y responsabilidad.
+        Cualquier marca registrada, logotipo u otro elemento distintivo presente en este sitio web son propiedad de sus respectivos dueños.
+        Para obtener permisos, solicitudes de uso o cualquier consulta relacionada con los derechos de autor, por favor contáctenos a anxsupport@gmail.com.
+        Gracias por visitar nuestro sitio web. 
+      </p>
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
 </body>
 </html>
