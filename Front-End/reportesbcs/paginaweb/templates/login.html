@@ -51,32 +51,34 @@
     <div
       id="cuerpoLogin"
       class="p-2 text-dark bg-opacity-50 text-center fw-bold"
-      style="margin: 5%; padding: 10px;"
+      style="margin: 5%; padding: 10px"
     >
-      <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label"
-          >Correo Electrónico</label
-        >
-        <input
-          type="email"
-          class="form-control"
-          id="exampleFormControlInput1"
-        />
-      </div>
-      <div>
-        <label for="inputPassword5" class="form-label">Contraseña</label>
-        <input
-          type="password"
-          id="inputPassword5"
-          class="form-control"
-          aria-describedby="passwordHelpBlock"
-        />
-      </div>
-      <button type="button" class="btn botones">Iniciar Sesión</button>
-      <div>
-        <button type="button" class="btn">Olvide mi contraseña</button>
-        <button type="button" class="btn">Registrarse</button>
-      </div>
+      <form id="loginUser">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label"
+            >Correo Electrónico</label
+          >
+          <input
+            type="email"
+            class="form-control"
+            id="exampleFormControlInput1"
+          />
+        </div>
+        <div>
+          <label for="inputPassword5" class="form-label">Contraseña</label>
+          <input
+            type="password"
+            id="inputPassword5"
+            class="form-control"
+            aria-describedby="passwordHelpBlock"
+          />
+        </div>
+        <button type="submit" class="btn botones">Iniciar Sesión</button>
+        <div>
+          <button type="button" class="btn">Olvide mi contraseña</button>
+          <button type="button" class="btn">Registrarse</button>
+        </div>
+      </form>
     </div>
 
     <script
@@ -84,5 +86,7 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../static/js/servicios.js"></script>
   </body>
 </html>
