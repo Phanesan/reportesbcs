@@ -15,5 +15,5 @@ def register(request):
 def menuUsers(request):
     return render(request, 'menuUsuarios.html')
 
-def reporteUsuarios(request):
+def reportesUsers(request):
     return render(request, 'reporteUsuarios.html')

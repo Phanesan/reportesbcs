@@ -1,6 +1,8 @@
 const { DataTypes } = require("sequelize")
 const { sequelize } = require('../db');
 
+const { Users } = require('./usuarioModel');
+
 const Trabajadores = sequelize.define('trabajadores', {
     id: {
         type: DataTypes.INTEGER,
@@ -8,9 +10,10 @@ const Trabajadores = sequelize.define('trabajadores', {
         autoIncrement: true,
         allowNull: false,
     },
-    correo: { // LLAVE FORANEA
+    correo: {
         type: DataTypes.CHAR(40),
         allowNull: false,
+        primaryKey: true,
     },
     rfc: {
         type: DataTypes.CHAR(13),

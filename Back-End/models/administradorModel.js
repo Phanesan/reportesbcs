@@ -8,7 +8,7 @@ const Administrador = sequelize.define('administrador', {
         autoIncrement: true,
         allowNull: false,
     },
-    correo: { // foranea
+    correo: {
         type: DataTypes.CHAR(40),
         allowNull: false,
     },
