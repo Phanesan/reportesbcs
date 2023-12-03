@@ -8,11 +8,16 @@ const Reporte = sequelize.define('reportes', {
         autoIncrement: true,
         allowNull: false,
     },
+    correo: {
+        type: DataTypes.CHAR(40),
+        allowNull: false,
+        primaryKey: true,
+    },
     ubicacion: {
         type: DataTypes.TEXT,
         allowNull: false,
     },
-    clasificacion: {
+    tipo: {
         type: DataTypes.ENUM('1','2','3','4','5','6'),
         allowNull: false,
     },
@@ -22,7 +27,6 @@ const Reporte = sequelize.define('reportes', {
     comentarios: {
         type: DataTypes.TEXT,
     }
-    // CORREO DE USUARIO COMO LLAVE FORANEA
 });
 
 module.exports = {
