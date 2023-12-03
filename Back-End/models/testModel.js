@@ -1,13 +1,30 @@
 //  Modelo de ejemplo
+const { DataTypes } = require("sequelize")
+const { DB } = require('../db');
+const Reporte = require('./reporteModel')
 
-module.exports = (sequelize, type) => {
-    return sequelize.define('table', {
-        id: {
-            type: type.INTEGER,
-            primaryKey: true,
-            autoIncrement: true
-        },
-        textString: type.STRING,
-        number: type.INTEGER
-    })
+const Users = DB.define('users', {
+    correo: {
+        type: DataTypes.CHAR(40),
+        primaryKey: true,
+        allowNull: false
+    },
+    password: {
+        type: DataTypes.CHAR(50),
+        allowNull: false
+    }
+});
+
+Users.hasMany(Reporte.Reporte, {
+    foreignKey: 'correo',
+    sourceKey: 'correo'
+})
+
+Reporte.Reporte.belongsTo(Users, {
+    foreignKey: 'correo',
+    targetKey: 'correo'
+})
+
+module.exports = {
+    Users
 }
