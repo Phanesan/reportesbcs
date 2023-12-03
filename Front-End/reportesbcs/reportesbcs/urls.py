@@ -16,9 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from reportesbcs.views import bienvenida
+from paginaweb import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('bienvenida/', bienvenida)
+    path('', views.bienvenida),
+    path('login/', views.login),
+    path('register/', views.register)
 ]

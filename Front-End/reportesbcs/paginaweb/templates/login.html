@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-expand-lg b* fw-bold"
+      style="background-color: #fffb96"
+    >
+      <div class="container-fluid">
+        <img
+          src="{%static 'images/logo.png'%}"
+          alt="Logo"
+          width="70"
+          height="74"
+          class="d-inline-block align-text-top"
+        />
+        <a class="navbar-brand" href="#">CalleAlDía</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarText"
+          aria-controls="navbarText"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div
+      id="cuerpoLogin"
+      class="p-2 text-dark bg-opacity-50 text-center fw-bold"
+      style="margin: 5%; padding: 10px;"
+    >
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label"
+          >Correo Electrónico</label
+        >
+        <input
+          type="email"
+          class="form-control"
+          id="exampleFormControlInput1"
+        />
+      </div>
+      <div>
+        <label for="inputPassword5" class="form-label">Contraseña</label>
+        <input
+          type="password"
+          id="inputPassword5"
+          class="form-control"
+          aria-describedby="passwordHelpBlock"
+        />
+      </div>
+      <button type="button" class="btn botones">Iniciar Sesión</button>
+      <div>
+        <button type="button" class="btn">Olvide mi contraseña</button>
+        <button type="button" class="btn">Registrarse</button>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
