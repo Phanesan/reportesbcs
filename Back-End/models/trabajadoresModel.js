@@ -1,36 +1,15 @@
 const { DataTypes } = require("sequelize")
-const { DB } = require('../db');
-const Reporte = require('./reporteModel')
+const { sequelize } = require('../db');
 
-const Trabajadores = DB.define('trabajadores', {
+const Trabajadores = sequelize.define('trabajadores', {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
         allowNull: false,
     },
-    nombre: {
-        type: DataTypes.CHAR(50),
-        allowNull: false,
-    },
-    apellido: {
-        type: DataTypes.CHAR(50),
-        allowNull: false,
-    },
-    correo: {
+    correo: { // LLAVE FORANEA
         type: DataTypes.CHAR(40),
-        allowNull: false,
-    },
-    contraseña: {
-        type: DataTypes.CHAR(30),
-        allowNull: false,
-    },
-    clave_lector: {
-        type: DataTypes.CHAR(18),
-        allowNull: false,
-    },
-    curp: {
-        type: DataTypes.CHAR(18),
         allowNull: false,
     },
     rfc: {
@@ -38,3 +17,7 @@ const Trabajadores = DB.define('trabajadores', {
         allowNull: false,
     }
 });
+
+module.exports = {
+    Trabajadores
+}

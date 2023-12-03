@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
-const { DB } = require('../db');
+const { sequelize } = require('../db');
 
-const Reporte = DB.define('reportes', {
+const Reporte = sequelize.define('reportes', {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -9,19 +9,20 @@ const Reporte = DB.define('reportes', {
         allowNull: false,
     },
     ubicacion: {
-        type: DataTypes.CHAR(550),
+        type: DataTypes.TEXT,
         allowNull: false,
     },
     clasificacion: {
-        type: DataTypes.ENUM('1','2','3','4','5'),
+        type: DataTypes.ENUM('1','2','3','4','5','6'),
         allowNull: false,
     },
     imagen_video: {
         type: DataTypes.BLOB,
     },
     comentarios: {
-        type: DataTypes.CHAR(250),
+        type: DataTypes.TEXT,
     }
+    // CORREO DE USUARIO COMO LLAVE FORANEA
 });
 
 module.exports = {

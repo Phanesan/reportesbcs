@@ -11,7 +11,7 @@ router.use('/users', USERS)
 //  --------------------------------------------------------------------    //
 // GET
 router.get('/', (req, res) => {
-    res.send("API HELP");
+    res.json({response: 'API HELP'});
 });
 
 module.exports = router;

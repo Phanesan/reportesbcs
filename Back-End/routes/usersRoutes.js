@@ -5,10 +5,11 @@ const router = express.Router();
 //  ----------------------------------------------------------------------  //
 // GET
 router.get('/', (req, res) => {
-    res.send("USER LIST")
+    res.json({});
 });
 
 // POST
-router.use(express.json());
+router.use(express.json);
+router.use(express.urlencoded({extended:true}));
 
 module.exports = router;

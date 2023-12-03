@@ -1,10 +1,14 @@
 //  Modelo de ejemplo
 const { DataTypes } = require("sequelize")
-const { DB } = require('../db');
-const Reporte = require('./reporteModel')
+const { sequelize } = require('../db');
 
 
-const Users = DB.define('users', {
+const Users = sequelize.define('users', {
+    correo: {
+        type: DataTypes.CHAR(40),
+        allowNull: false,
+        primaryKey: true,
+    },
     nombre: {
         type: DataTypes.CHAR(50),
         allowNull: false,
@@ -13,11 +17,7 @@ const Users = DB.define('users', {
         type: DataTypes.CHAR(50),
         allowNull: false,
     },
-    correo: {
-        type: DataTypes.CHAR(40),
-        allowNull: false,
-    },
-    contraseña: {
+    password: {
         type: DataTypes.CHAR(30),
         allowNull: false,
     },
@@ -29,18 +29,9 @@ const Users = DB.define('users', {
     },
     curp: {
         type: DataTypes.CHAR(18),
+        allowNull: false,
     }
 });
-
-Users.hasMany(Reporte.Reporte, {
-    foreignKey: 'correo',
-    sourceKey: 'correo'
-})
-
-Reporte.Reporte.belongsTo(Users, {
-    foreignKey: 'correo',
-    targetKey: 'correo'
-})
 
 module.exports = {
     Users
