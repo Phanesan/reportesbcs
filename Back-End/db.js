@@ -30,3 +30,60 @@ const { Administrador } = require('./models/administradorModel.js');
 const { Materiales } = require('./models/materialesModel.js');
 const { Trabajadores } = require('./models/trabajadoresModel.js');
 const { Users } = require('./models/usuarioModel.js');
+const { ListaMateriales } = require('./models/listaMaterialesModel.js');
+
+//  Llaves foraneas
+// Users - Trabajadores
+Users.hasMany(Trabajadores, {
+    foreignKey: 'correo',
+    sourceKey: 'correo'
+})
+
+Trabajadores.belongsTo(Users, {
+    foreignKey: 'correo',
+    targetKey: 'correo'
+});
+
+// Users - Reporte
+Users.hasMany(Reporte, {
+    foreignKey: 'correo',
+    sourceKey: 'correo'
+})
+
+Reporte.belongsTo(Users, {
+    foreignKey: 'correo',
+    targetKey: 'correo'
+})
+
+// ListaMateriales - Reporte
+Reporte.hasMany(ListaMateriales, {
+    foreignKey: 'id_reporte',
+    sourceKey: 'id'
+})
+
+ListaMateriales.belongsTo(Reporte, {
+    foreignKey: 'id_reporte',
+    targetKey: 'id'
+})
+
+// ListaMateriales - Material
+Materiales.hasMany(ListaMateriales, {
+    foreignKey: 'id_material',
+    sourceKey: 'id'
+})
+
+ListaMateriales.belongsTo(Materiales, {
+    foreignKey: 'id_material',
+    targetKey: 'id'
+})
+
+//  Users - Administrador
+Users.hasOne(Administrador, {
+    foreignKey: 'correo',
+    sourceKey: 'correo'
+})
+
+Administrador.belongsTo(Users, {
+    foreignKey: 'correo',
+    targetKey: 'correo'
+})
