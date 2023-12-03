@@ -11,3 +11,6 @@ def login(request):
 
 def register(request):
     return render(request, 'register.html')
+
+def reportesUsers(request):
+    return render(request, 'realizarReporte.html')

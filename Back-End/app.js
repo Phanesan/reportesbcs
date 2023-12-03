@@ -8,7 +8,7 @@ const API = require('./routes/mainRoutes');
 
 //  Config
 const app = express();
-const PORT = 3000;
+const PORT = 3001;
 
 async function Main() {
     try {
