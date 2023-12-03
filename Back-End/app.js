@@ -1,6 +1,6 @@
 //  Imports
 const express = require("express");
-const { DB } = require('./db');
+const { sequelize } = require('./db');
 
 //  Path
 const API = require('./routes/mainRoutes');
@@ -12,12 +12,9 @@ const PORT = 3000;
 async function Main() {
     try {
 
-        await DB.sync({force: false})
+        await sequelize.sync({force: true})
         .then(() => {
             console.log('Tablas sincronizadas con exito');
-        })
-        .catch(() => {
-            console.error('Hubo un problema al sincronizar las tablas');
         })
 
         //  Listen port
@@ -26,11 +23,11 @@ async function Main() {
         });
 
         //  Middlewares
-        app.use('/api', API)
+        app.use('/api', API);
 
         //  Root path
         app.get('/', (req, res) => {
-            res.send("Bienvenido a la API de reportes bcs")
+            res.json({response: 'Bienvenido a la API de reportes bcs'})
         })
 
     } catch (error) {
