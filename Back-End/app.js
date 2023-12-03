@@ -1,5 +1,6 @@
 //  Imports
 const express = require("express");
+const cors = require('cors');
 const { sequelize } = require('./db');
 
 //  Path
@@ -23,6 +24,7 @@ async function Main() {
         });
 
         //  Middlewares
+        app.use(cors());
         app.use('/api', API);
 
         //  Root path
