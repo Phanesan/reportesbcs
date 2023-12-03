@@ -12,7 +12,7 @@ const PORT = 3000;
 async function Main() {
     try {
 
-        await sequelize.sync({force: true})
+        await sequelize.sync({force: false})
         .then(() => {
             console.log('Tablas sincronizadas con exito');
         })
