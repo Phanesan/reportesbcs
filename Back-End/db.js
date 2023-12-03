@@ -1,5 +1,5 @@
 const { Sequelize } = require('sequelize');
-const mysql = require('mysql2');
+const { createPool } = require('mysql2/promise.js');
 
 //  CONFIG DATABASE
 const HOST = '127.0.0.1';
@@ -12,11 +12,12 @@ const sequelize = new Sequelize(DATABASE,USER,PASSWORD, {
     dialect: 'mysql'
 });
 
-const connection = mysql.createConnection({
+const connection = createPool({
     host: HOST,
+    port: 3306,
     user: USER,
-    database: DATABASE,
     password: PASSWORD,
+    database: DATABASE,
 });
 
 module.exports = {
