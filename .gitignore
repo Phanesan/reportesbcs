@@ -1,1 +1,8 @@
 node_modules/
+
+pycache/
+*.pyc
+*.pyo
+*.pyd
+
+.env
