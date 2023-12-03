@@ -21,4 +21,5 @@ from paginaweb import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.bienvenida),
+    path('login/', views.login),c
 ]
