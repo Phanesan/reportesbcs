@@ -29,3 +29,22 @@ document.querySelector("#activarAgreagarImagen").addEventListener("click", () =>
       )
     }
   })
+
+  document.getElementById("RegistrarUsuario").addEventListener("submit",async(e)=>{
+    e.preventDefault()
+    console.log(e)
+    const res = await fetch("http://127.0.0.1:8000/api/register", {
+      method: "POST",
+      headers:{
+        "Content-Type" : "application/json"
+      },
+      body: JSON.stringify({
+        nombre: e.target.exampleFormNameInput1.value,
+        apellido: e.target.exampleFormLastNameInput1.value,
+        curp: e.target.exampleFormCurpInput1.value,
+        claveElector:e.target.exampleFormClaveElectorInput1.value,
+        correo: e.target.exampleFormControlInput1.value,
+        contraseña: e.target.inputPassword5.value
+      })
+    })
+  })
