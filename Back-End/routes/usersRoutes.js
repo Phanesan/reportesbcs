@@ -15,8 +15,12 @@ router.get('/', async (req, res) => {
         limit = 30;
     }
 
-    const [rows] = await connection.query(`SELECT * FROM users LIMIT ?`, limit);
-    res.json(rows);
+    try{
+        const [rows] = await connection.query(`SELECT * FROM users LIMIT ?`, limit);
+        res.json(rows);
+    } catch(error) {
+        console.log(error);
+    }
 });
 
 module.exports = router;
