@@ -17,3 +17,6 @@ def menuUsers(request):
 
 def reportesUsers(request):
     return render(request, 'reporteUsuarios.html')
+
+def seguimientoReporteUser(request):
+    return render(request, 'seguimientoReporte.html')
