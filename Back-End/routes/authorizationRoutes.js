@@ -7,6 +7,7 @@ const bcrypt = require('bcryptjs');
 const webtoken = require('jsonwebtoken');
 const dotenv = require('dotenv');
 const perms = require('../middlewares/authorization.js');
+const cookieParser = require('cookie-parser');
 const router = express.Router();
 
 dotenv.config();
@@ -17,20 +18,18 @@ router.get('/',(req,res) => {
 
 //  MIDDLEWARES
 router.use(express.json());
+router.use(cookieParser())
 router.use(express.urlencoded({extended:true}));
 
 //  METHOD POST
 router.post('/login',login);
 router.post('/register',register);
-
-router.use(perms.confirmAdmin)
-
-router.post('/auth',auth)
+router.post('/auth',perms.auth,auth)
 
 // Functions
 
 async function auth(req, res) {
-    const rol = req.query.rol;
+    res.json({status:"ok",message:"autenticacion aprobada"});
 }
 
 async function login(req, res) {
@@ -43,14 +42,16 @@ async function login(req, res) {
     try{
         const [rows] = await connection.query('SELECT * FROM users WHERE correo = ?',[req.body.correo]);
         if(rows.length == 0) {
-            return res.status(400).json({status: "error", message: "Error en la autenticación, datos incorrectos.1"});
+            return res.status(400).json({status: "error", message: "Error en la autenticación, datos incorrectos."});
         }
         const isUser = await bcrypt.compare(data.password,rows[0].password);
         if(!isUser) {
-            return res.status(400).json({status: "error", message: "Error en la autenticación, datos incorrectos.2"});
+            return res.status(400).json({status: "error", message: "Error en la autenticación, datos incorrectos."});
         }
 
-        const token = webtoken.sign({correo:rows[0].correo},process.env.JWT_SECRET,{
+        const [roles] = await connection.query('SELECT rol FROM users_rols WHERE correo = ?',[rows[0].correo]);
+
+        const token = webtoken.sign({correo:rows[0].correo,roles:roles},process.env.JWT_SECRET,{
             expiresIn:process.env.JWT_EXPIRATION
         });
 
@@ -59,7 +60,7 @@ async function login(req, res) {
         }
 
         res.cookie('jwt',token,cookieOption);
-        res.status(200).json({status:"ok",message:"Usuario autenticado"});
+        return res.status(200).json({status:"ok",message:"Usuario autenticado"});
     }catch(error){
         console.log(error);
         return res.status(400).json({status: "error", message: error});
@@ -77,7 +78,7 @@ async function register(req, res) {
             data.nombre,
             data.apellido,
             hashPassword,
-            data.curp,
+            data.curp
         ])
         res.status(200).json({status: "ok"});
     } catch(error) {

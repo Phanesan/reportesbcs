@@ -26,7 +26,7 @@ module.exports = {
 }
 
 const { Reporte } = require('./models/reporteModel.js');
-const { Administrador } = require('./models/administradorModel.js');
+const { UsersRol } = require('./models/usersRolModel.js');
 const { Materiales } = require('./models/materialesModel.js');
 const { Trabajadores } = require('./models/trabajadoresModel.js');
 const { Users } = require('./models/usuarioModel.js');
@@ -77,13 +77,13 @@ ListaMateriales.belongsTo(Materiales, {
     targetKey: 'id'
 })
 
-//  Users - Administrador
-Users.hasOne(Administrador, {
+// Users - UsersRol
+Users.hasMany(UsersRol, {
     foreignKey: 'correo',
     sourceKey: 'correo'
 })
 
-Administrador.belongsTo(Users, {
+UsersRol.belongsTo(Users, {
     foreignKey: 'correo',
     targetKey: 'correo'
 })
