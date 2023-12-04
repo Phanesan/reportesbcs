@@ -73,11 +73,12 @@ async function register(req, res) {
     const hashPassword = await bcrypt.hash(req.body.password,salt)
 
     try {
-        await connection.query('INSERT INTO users(correo,nombre,apellido,password,curp,`createdAt`,`updatedAt`) VALUES (?,?,?,?,?,now(),now())',[
+        await connection.query('INSERT INTO users(correo,nombre,apellido,password,clave_lector,curp,`createdAt`,`updatedAt`) VALUES (?,?,?,?,?,?,now(),now())',[
             data.correo,
             data.nombre,
             data.apellido,
             hashPassword,
+            data.claveElector,
             data.curp
         ])
         res.status(200).json({status: "ok"});
