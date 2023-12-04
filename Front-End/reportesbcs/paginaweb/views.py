@@ -20,3 +20,6 @@ def reportesUsers(request):
 
 def seguimientoReporteUser(request):
     return render(request, 'seguimientoReporte.html')
+
+def listaReporteAdmin(request):
+    return render(request, 'listaReportesAdmin.html')

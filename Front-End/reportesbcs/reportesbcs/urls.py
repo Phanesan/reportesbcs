@@ -25,5 +25,6 @@ urlpatterns = [
     path('register/', views.register),
     path('menuUsers/', views.menuUsers),
     path('reportesUsers/', views.reportesUsers),
-    path('seguimientoReporteUser/', views.seguimientoReporteUser)
+    path('seguimientoReporteUser/', views.seguimientoReporteUser),
+    path('listaReporteAdmin/', views.listaReporteAdmin)
 ]
