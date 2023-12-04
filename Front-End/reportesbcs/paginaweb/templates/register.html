@@ -2,9 +2,9 @@
 <html lang="en">
   {% load static %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Register</title>
     <link rel="stylesheet" href="{% static 'css/estilo.css' %}" />
     <link
@@ -12,135 +12,145 @@
       rel="stylesheet"
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
-    >
-</head>
-<body>
+    />
+  </head>
+  <body>
     <nav
-    class="navbar navbar-expand-lg b* fw-bold"
-    style="background-color: #fffb96"
-  >
-    <div class="container-fluid">
-      <img
-        src="{%static 'images/logo.png'%}"
-        alt="Logo"
-        width="70"
-        height="74"
-        class="d-inline-block align-text-top"
-      />
-      <a class="navbar-brand" href="#">CalleAlDía</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarText"
-        aria-controls="navbarText"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Inicio</a>
-          </li>
-        </ul>
+      class="navbar navbar-expand-lg b* fw-bold"
+      style="background-color: #fffb96"
+    >
+      <div class="container-fluid">
+        <img
+          src="{%static 'images/logo.png'%}"
+          alt="Logo"
+          width="70"
+          height="74"
+          class="d-inline-block align-text-top"
+        />
+        <a class="navbar-brand" href="#">CalleAlDía</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarText"
+          aria-controls="navbarText"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
 
-  <div
-    id="cuerpoRegister"
-    class="p-2 text-dark bg-opacity-50 text-center fw-bold"
-    style="margin: 5%; padding: 10px;"
-  >
-  <div class="row">
-    <div class="col">
-        <div class="mb-3">
-            <label for="exampleFormNameInput1" class="form-label"
-            >Nombre</label
-          >
-          <input
-            type="text"
-            class="form-control formatoInput"
-            id="exampleFormNameInput1"
-          /> 
-    
-          <label for="exampleFormLastNameInput1" class="form-label"
-            >Apellido</label
-          >
-          <input
-            type="text"
-            class="form-control formatoInput"
-            id="exampleFormLastNameInput1"
-          /> 
-    
-          <label for="exampleFormCurpInput1" class="form-label"
-            >CURP</label
-          >
-          <input
-            type="text"
-            class="form-control formatoInput"
-            id="exampleFormCurpInput1"
-          /> 
-    
-          <label for="exampleFormClaveElectorInput1" class="form-label"
-            >Clade de Elector</label
-          >
-          <input
-            type="text"
-            class="form-control formatoInput"
-            id="exampleFormClaveElectorInput1"
-          /> 
-    
-          <label for="exampleFormControlInput1" class="form-label"
-            >Correo Electrónico</label
-          >
-          <input
-            type="email"
-            class="form-control formatoInput"
-            id="exampleFormControlInput1"
-          />
-        </div>
-        <div>
-          <label for="inputPassword5" class="form-label">Contraseña</label>
-          <input
-            type="password"
-            id="inputPassword5"
-            class="form-control formatoInput"
-            aria-describedby="passwordHelpBlock"
-          />
-    
-          <label for="inputRepeatPassword5" class="form-label">Repetir Contraseña</label>
-          <input
-            type="password"
-            id="inputRepeatPassword5"
-            class="form-control formatoInput"
-            aria-describedby="passwordHelpBlock"
-          />
-        </div>
-    
-    </div>
-    <div class="col" style="margin-top: 3vh;">
-        <div class="imagenPerfil">
-          <div class="overlay">
+    <div
+      id="cuerpoRegister"
+      class="p-2 text-dark bg-opacity-50 text-center fw-bold"
+      style="margin: 5%; padding: 10px"
+    >
+      <form id="RegistrarUsuario">
+        <div class="row">
+          <div class="col">
+            <div class="mb-3">
+              <label for="exampleFormNameInput1" class="form-label"
+                >Nombre</label
+              >
+              <input
+                type="text"
+                class="form-control formatoInput"
+                id="exampleFormNameInput1"
+              />
 
+              <label for="exampleFormLastNameInput1" class="form-label"
+                >Apellido</label
+              >
+              <input
+                type="text"
+                class="form-control formatoInput"
+                id="exampleFormLastNameInput1"
+              />
+
+              <label for="exampleFormCurpInput1" class="form-label">CURP</label>
+              <input
+                type="text"
+                class="form-control formatoInput"
+                id="exampleFormCurpInput1"
+              />
+
+              <label for="exampleFormClaveElectorInput1" class="form-label"
+                >Clade de Elector</label
+              >
+              <input
+                type="text"
+                class="form-control formatoInput"
+                id="exampleFormClaveElectorInput1"
+              />
+
+              <label for="exampleFormControlInput1" class="form-label"
+                >Correo Electrónico</label
+              >
+              <input
+                type="email"
+                class="form-control formatoInput"
+                id="exampleFormControlInput1"
+              />
+            </div>
+            <div>
+              <label for="inputPassword5" class="form-label">Contraseña</label>
+              <input
+                type="password"
+                id="inputPassword5"
+                class="form-control formatoInput"
+                aria-describedby="passwordHelpBlock"
+              />
+
+              <label for="inputRepeatPassword5" class="form-label"
+                >Repetir Contraseña</label
+              >
+              <input
+                type="password"
+                id="inputRepeatPassword5"
+                class="form-control formatoInput"
+                aria-describedby="passwordHelpBlock"
+              />
+            </div>
           </div>
-        <img src="{%static 'images/defaultUser.jpg'%}" alt="Snow" id="imgU">
-        <input type="file" name="UserImage" id="agregarImagen" hidden>
-        <button type="button" class="btn botonImagen" id="activarAgreagarImagen">Subir Imagen</button>
+          <div class="col" style="margin-top: 3vh">
+            <div class="imagenPerfil">
+              <div class="overlay"></div>
+              <img
+                src="{%static 'images/defaultUser.jpg'%}"
+                alt="Snow"
+                id="imgU"
+              />
+              <input type="file" name="UserImage" id="agregarImagen" hidden />
+              <button
+                type="button"
+                class="btn botonImagen"
+                id="activarAgreagarImagen"
+              >
+                Subir Imagen
+              </button>
+            </div>
+            <button type="submit" class="btn botones" id="registrarButton">
+              Registrarse
+            </button>
+          </div>
         </div>
-        <button type="button" class="btn botones" id="registrarButton">Registrarse</button>
+      </form>
     </div>
-  </div>
-      
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
-    <script type="text/javascript" src="../static/js/register.js">
-        
-    </script>
-</body>
+    <script type="text/javascript" src="../static/js/register.js"></script>
+  </body>
 </html>

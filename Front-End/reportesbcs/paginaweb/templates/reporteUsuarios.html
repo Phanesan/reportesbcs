@@ -5,6 +5,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ReportesUsuarios</title>
+
+    <link rel="stylesheet" href="{% static 'css/estiloMenu.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -15,11 +18,359 @@
   <body onload="cargarNavbar()">
     <div id="divNavbar"></div>
 
+    <div
+      id="cuerpoReporte"
+      class="p-2 text-dark bg-opacity-50 text-center fw-bold"
+      style="margin: 5%; padding: 10px"
+    >
+      <form id="reporteDeUsuario">
+        <div class="row">
+          <div class="col">
+            <label for="callePrincipalInput1" class="form-label"
+              >Calle Principal</label
+            >
+            <input
+              type="text"
+              class="form-control formatoInput"
+              id="callePrincipalInput1"
+            />
+
+            <label for="calleSecundariaInput1" class="form-label"
+              >Calle Secundaria</label
+            >
+            <input
+              type="text"
+              class="form-control formatoInput"
+              id="calleSecundariaInput1"
+            />
+
+            <label for="coloniaInput1" class="form-label">Colonia</label>
+            <input
+              type="text"
+              class="form-control formatoInput"
+              id="coloniaInput1"
+            />
+
+            <label for="categoriaInput1" class="form-label"
+              >Categoria de incidencia:
+            </label>
+            <select
+              class="formCategoria"
+              aria-label="Categoria"
+              id="categoriaInput1"
+            >
+              <option selected>Opciones...</option>
+              <option value="1">Baches</option>
+              <option value="2">Acera Dañada</option>
+              <option value="3">Señalizacion Dudosa</option>
+              <option value="4">Problema de Alcantarillado</option>
+              <option value="5">Problema de Alumbrado</option>
+              <option value="6">Acumulación de Basura</option>
+              <option value="7">Semaforo Defectuoso</option>
+            </select>
+            <br />
+            <label for="comentInput1" class="form-label">Comentarios</label>
+            <textarea
+              type="text"
+              class="form-control formatoInput"
+              id="comentInput1"
+              style="resize: none"
+            ></textarea>
+          </div>
+          <div class="col">
+            <div class="imagenPerfil">
+              <div class="overlay"></div>
+              <img src="{%static 'images/noImage.jpg'%}" alt="Snow" id="imgU" />
+              <input type="file" name="UserImage" id="agregarImagen" hidden />
+              <button
+                type="button"
+                class="btn botonImagen"
+                id="activarAgreagarImagen"
+              >
+                Subir Imagen
+              </button>
+            </div>
+            <button type="button" class="btn botones" id="subirReporte">
+              Subir Reporte
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div
+      class="accordion infoCategorias"
+      id="accordionExample"
+      style="margin: 5%"
+    >
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button
+            class="accordion-button"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseOne"
+            aria-expanded="true"
+            aria-controls="collapseOne"
+            style="font-weight: bold"
+          >
+            Baches
+          </button>
+        </h2>
+        <div
+          id="collapseOne"
+          class="accordion-collapse collapse show"
+          data-bs-parent="#accordionExample"
+        >
+          <div class="accordion-body">
+            Un bache es un área de superficie irregular o agujero en una
+            carretera, calle o camino, generalmente causado por el desgaste, el
+            clima, el tráfico constante o la falta de mantenimiento. Los baches
+            pueden ser pequeños o grandes y representar un peligro para los
+            vehículos y los peatones, ya que pueden causar daños en los
+            automóviles o incluso accidentes si no se reparan.
+            <img
+              src="{%static 'images/baches.jpg'%}"
+              class="d-block w-50"
+              alt="..."
+              style="position: relative; left: 25%"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseTwo"
+            aria-expanded="false"
+            aria-controls="collapseTwo"
+            style="font-weight: bold"
+          >
+            Acera Dañada
+          </button>
+        </h2>
+        <div
+          id="collapseTwo"
+          class="accordion-collapse collapse"
+          data-bs-parent="#accordionExample"
+        >
+          <div class="accordion-body">
+            Una acera dañada se refiere a cualquier tipo de desperfecto, rotura
+            o irregularidad en el pavimento peatonal ubicado junto a las calles
+            o carreteras. Estos daños pueden incluir grietas, agujeros,
+            desniveles, baldosas sueltas o levantadas, entre otros problemas.
+            Las aceras dañadas representan un riesgo para los peatones, ya que
+            pueden causar tropezones, caídas o lesiones si no se reparan
+            adecuadamente.
+            <img
+              src="{%static 'images/mantenimiento.jpeg'%}"
+              class="d-block w-50"
+              alt="..."
+              style="position: relative; left: 25%"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+            style="font-weight: bold"
+          >
+            Señalizacion Dudosa
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          data-bs-parent="#accordionExample"
+        >
+          <div class="accordion-body">
+            Cualquier tipo de señal, marca o indicación en calles, carreteras o
+            áreas públicas que puede resultar confusa, poco clara o ambigua para
+            los conductores, peatones o usuarios. Esto puede incluir señales mal
+            colocadas, ilegibles, con información contradictoria o insuficiente,
+            lo que puede generar confusión, riesgos de accidentes o dificultades
+            para la navegación segura en el área.
+            <img
+              src="{%static 'images/señalizacionrara.png'%}"
+              class="d-block w-50"
+              alt="..."
+              style="position: relative; left: 25%"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseFour"
+            aria-expanded="false"
+            aria-controls="collapseFour"
+            style="font-weight: bold"
+          >
+            Problema de Alcantarillado
+          </button>
+        </h2>
+        <div
+          id="collapseFour"
+          class="accordion-collapse collapse"
+          data-bs-parent="#accordionExample"
+        >
+          <div class="accordion-body">
+            Los problemas de alcantarillado pueden ser variados y van desde
+            obstrucciones menores hasta situaciones más graves que afectan todo
+            el sistema. Algunos de los problemas comunes que pueden ocurrir en
+            sistemas de alcantarillado incluyen:
+            <ol>
+              1-Obstrucciones: Acumulación de residuos, objetos extraños,
+              acumulación de grasa o raíces de árboles que bloquean el flujo
+              normal de aguas residuales.
+            </ol>
+            <ol>
+              2-Roturas o grietas: Daños en las tuberías debido al desgaste,
+              corrosión, terremotos u otros factores, lo que puede provocar
+              fugas de aguas residuales.
+            </ol>
+            <ol>
+              3-Colapso de tuberías: El deterioro extremo de las tuberías puede
+              causar que se derrumben, bloqueando por completo el flujo de aguas
+              residuales.
+            </ol>
+            <ol>
+              4-Mal funcionamiento del sistema de drenaje: Problemas con el
+              sistema de drenaje pluvial que no permite el drenaje adecuado de
+              aguas pluviales.
+            </ol>
+            <ol>
+              5-Olores fuertes: Si hay roturas o bloqueos en el sistema, puede
+              provocar la liberación de olores desagradables.
+            </ol>
+            <img
+              src="{%static 'images/alcantarillado.jpeg'%}"
+              class="d-block w-50"
+              alt="..."
+              style="position: relative; left: 25%"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseFive"
+            aria-expanded="false"
+            aria-controls="collapseFive"
+            style="font-weight: bold"
+          >
+            Problema de Alumbrado
+          </button>
+        </h2>
+        <div
+          id="collapseFive"
+          class="accordion-collapse collapse"
+          data-bs-parent="#accordionExample"
+        >
+          <div class="accordion-body">
+            Los problemas de alumbrado en la vía pública pueden generar
+            situaciones de inseguridad y dificultades para el tráfico y la
+            movilidad nocturna.
+            <img
+              src="{%static 'images/alumbrado.jpg'%}"
+              class="d-block w-50"
+              alt="..."
+              style="position: relative; left: 25%"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseSix"
+            aria-expanded="false"
+            aria-controls="collapseSix"
+            style="font-weight: bold"
+          >
+            Acumulación de Basura
+          </button>
+        </h2>
+        <div
+          id="collapseSix"
+          class="accordion-collapse collapse"
+          data-bs-parent="#accordionExample"
+        >
+          <div class="accordion-body">
+            La acumulación de basura en la vía pública puede generar una serie
+            de problemas, como riesgos para la salud pública, contaminación
+            ambiental, olores desagradables y un aspecto visual poco atractivo
+            en la comunidad.
+            <img
+              src="{%static 'images/basura.jpg'%}"
+              class="d-block w-50"
+              alt="..."
+              style="position: relative; left: 25%"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseSeven"
+            aria-expanded="false"
+            aria-controls="collapseSeven"
+            style="font-weight: bold"
+          >
+            Semaforo Defectuoso
+          </button>
+        </h2>
+        <div
+          id="collapseSeven"
+          class="accordion-collapse collapse"
+          data-bs-parent="#accordionExample"
+        >
+          <div class="accordion-body">
+            Un semáforo defectuoso puede causar confusión, retrasos en el
+            tráfico y potencialmente provocar situaciones de peligro en las
+            intersecciones.
+            <img
+              src="{%static 'images/semaforos.png'%}"
+              class="d-block w-50"
+              alt="..."
+              style="position: relative; left: 25%"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
+    <script type="text/javascript" src="../static/js/imagenReporte.js"></script>
     <script type="text/javascript" src="../static/js/navbar.js"></script>
   </body>
 </html>
