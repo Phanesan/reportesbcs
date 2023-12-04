@@ -17,7 +17,7 @@ const Users = sequelize.define('users', {
         allowNull: false,
     },
     password: {
-        type: DataTypes.CHAR(30),
+        type: DataTypes.CHAR(80),
         allowNull: false,
     },
     clave_lector: {
