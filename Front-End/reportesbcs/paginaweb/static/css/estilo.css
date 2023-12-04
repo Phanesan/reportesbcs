@@ -91,3 +91,11 @@
 .imagenPerfil:hover .overlay {
   background-color: rgba(0, 0, 0, 0.7);
 }
+
+.infoCategorias {
+  padding: 5% !important;
+}
+
+.accordion-button {
+  font-weight: bold !important;
+}
