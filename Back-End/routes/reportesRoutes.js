@@ -45,7 +45,7 @@ const searchReport = async (req,res) => {
         if(!result[0][0]) {
             return res.status(400).json({success:"failed",message:"No encontro ninguna coincidencia"})
         }
-        return res.status(200).json(result[0][0]);
+        return res.status(200).json(result[0]);
     } catch(error) {
         return res.status(400).json({success:"failed",message:error})
     }
