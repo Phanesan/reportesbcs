@@ -33,11 +33,13 @@ const deleteReport = async (req,res) => {
 
 const searchReport = async (req,res) => {
     const data = req.query.id;
+    console.log(data);
     try {
-        if(!data) {
-            const result = await connection.query('SELECT * FROM `reportes`',[data])
+        let result;
+        if(data == undefined) {
+            result = await connection.query('SELECT * FROM `reportes`')
         } else {
-            const result = await connection.query('SELECT * FROM `reportes` WHERE `id`= ?',[data])
+            result = await connection.query('SELECT * FROM `reportes` WHERE `id`= ?',[data])
         }
         console.log(result[0][0]);
         if(!result[0][0]) {
