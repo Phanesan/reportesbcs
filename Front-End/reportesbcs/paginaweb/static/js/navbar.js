@@ -27,7 +27,14 @@ function cargarNavbar(){
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="menuUsers/">Inicio</a>
+            <a class="nav-link active" aria-current="page" href="/menuUsers">Inicio</a>
+          </li>
+        </ul>
+      </div>
+      <div class="collapse navbar-collapse" id="navbarlogout">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Desconectarse</a>
           </li>
         </ul>
       </div>
