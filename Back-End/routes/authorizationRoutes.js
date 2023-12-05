@@ -5,7 +5,6 @@ const { connection } = require('../db');
 const bcrypt = require('bcryptjs');
 const webtoken = require('jsonwebtoken');
 const dotenv = require('dotenv');
-const cookieParser = require('cookie-parser');
 
 dotenv.config();
 
