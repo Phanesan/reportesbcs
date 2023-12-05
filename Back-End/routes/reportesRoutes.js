@@ -37,9 +37,9 @@ const searchReport = async (req,res) => {
     try {
         let result;
         if(data == undefined) {
-            result = await connection.query('SELECT * FROM `reportes`')
+            result = await connection.query('SELECT * FROM reportes')
         } else {
-            result = await connection.query('SELECT * FROM `reportes` WHERE `id`= ?',[data])
+            result = await connection.query('SELECT * FROM reportes WHERE id= ?',[data])
         }
         console.log(result[0][0]);
         if(!result[0][0]) {
@@ -78,3 +78,7 @@ module.exports = {
     searchReport,
     editReport
 };
+
+
+
+//ola

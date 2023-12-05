@@ -41,7 +41,12 @@
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="">Inicio</a>
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="http://127.0.0.1:8000/"
+                >Inicio</a
+              >
             </li>
           </ul>
         </div>
@@ -76,13 +81,9 @@
         <button type="submit" class="btn botones">Iniciar Sesión</button>
         <div>
           <button type="button" class="btn">Olvide mi contraseña</button>
-          <button
-            type="button"
-            class="btn"
-            onclick="window.location.href='{% url /register/ %}'"
-          >
+          <a type="button" class="btn" href="http://127.0.0.1:8000/register/">
             Registrarse
-          </button>
+          </a>
         </div>
       </form>
     </div>
@@ -93,6 +94,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="../static/js/servicios.js"></script>
+    <script src="../static/js/login.js"></script>
   </body>
 </html>

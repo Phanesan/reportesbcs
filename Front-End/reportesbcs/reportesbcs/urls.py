@@ -26,5 +26,6 @@ urlpatterns = [
     path('menuUsers/', views.menuUsers),
     path('reportesUsers/', views.reportesUsers),
     path('seguimientoReporteUser/', views.seguimientoReporteUser),
-    path('listaReporteAdmin/', views.listaReporteAdmin)
+    path('listaReporteAdmin/', views.listaReporteAdmin),
+    path('editarReporteAdmin/', views.editarReporteAdmin)
 ]

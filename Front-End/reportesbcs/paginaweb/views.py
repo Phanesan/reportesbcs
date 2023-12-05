@@ -23,3 +23,6 @@ def seguimientoReporteUser(request):
 
 def listaReporteAdmin(request):
     return render(request, 'listaReportesAdmin.html')
+
+def editarReporteAdmin(request):
+    return render(request, 'editarReporteAdmin.html')
