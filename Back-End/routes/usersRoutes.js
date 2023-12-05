@@ -1,13 +1,9 @@
 // 127.0.0.1:3001/api/users
 
 // Imports
-const express = require('express');
 const { connection } = require('../db');
-const router = express.Router();
 
-//  ----------------------------------------------------------------------  //
-// GET
-router.get('/', async (req, res) => {
+const list = async (req, res) => {
     let limit = req.query.limit;
     limit = parseInt(limit);
 
@@ -17,10 +13,12 @@ router.get('/', async (req, res) => {
 
     try{
         const [rows] = await connection.query(`SELECT * FROM users LIMIT ?`, limit);
-        res.json(rows);
+        return res.status(200).json(rows);
     } catch(error) {
         console.log(error);
     }
-});
+}
 
-module.exports = router;
+module.exports = {
+    list
+};
