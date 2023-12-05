@@ -47,4 +47,5 @@ document.querySelector("#activarAgreagarImagen").addEventListener("click", () =>
         curp: e.target.exampleFormCurpInput1.value
       })
     })
+    window.location.href = "/login/" 
   })

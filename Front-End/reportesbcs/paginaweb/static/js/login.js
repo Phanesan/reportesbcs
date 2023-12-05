@@ -1,5 +1,5 @@
 const mensajeError = document.getElementsByClassName("error")[0]
-
+ 
 document.getElementById("loginUser").addEventListener("submit",async(e)=>{
     e.preventDefault()
     const user = e.target.exampleFormControlInput1.value;
@@ -17,4 +17,4 @@ document.getElementById("loginUser").addEventListener("submit",async(e)=>{
     })
     if(!res.ok) return mensajeError.classList.toggle("escondido", false)
     window.location.href = "/menuUsers/"
-  })
+  })  
