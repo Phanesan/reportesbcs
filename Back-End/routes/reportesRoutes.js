@@ -34,7 +34,11 @@ const deleteReport = async (req,res) => {
 const searchReport = async (req,res) => {
     const data = req.query.id;
     try {
-        const result = await connection.query('SELECT * FROM `reportes` WHERE `id`= ?',[data])
+        if(!data) {
+            const result = await connection.query('SELECT * FROM `reportes`',[data])
+        } else {
+            const result = await connection.query('SELECT * FROM `reportes` WHERE `id`= ?',[data])
+        }
         console.log(result[0][0]);
         if(!result[0][0]) {
             return res.status(400).json({success:"failed",message:"No encontro ninguna coincidencia"})

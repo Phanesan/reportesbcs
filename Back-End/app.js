@@ -2,6 +2,7 @@
 const express = require("express");
 const cors = require('cors');
 const { sequelize } = require('./db');
+const cookieParser = require('cookie-parser');
 
 //  Config
 const app = express();
@@ -26,6 +27,7 @@ async function Main() {
         app.use(cors());
         app.use(express.json())
         app.use(express.urlencoded({extended:true}))
+        app.use(cookieParser());
         
         //  Root path
         app.get('/', (req, res) => {
