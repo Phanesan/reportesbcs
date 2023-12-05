@@ -1,38 +1,24 @@
 // 127.0.0.1:3001/api/authorization
 
 // Imports
-const express = require('express');
 const { connection } = require('../db');
 const bcrypt = require('bcryptjs');
 const webtoken = require('jsonwebtoken');
 const dotenv = require('dotenv');
-const perms = require('../middlewares/authorization.js');
 const cookieParser = require('cookie-parser');
-const router = express.Router();
 
 dotenv.config();
 
-router.get('/',(req,res) => {
-    res.status(200).json({message: "Ruta de autorizacion.",loginRuta: "127.0.0.1:3001/api/authorization/login", registerRuta: "127.0.0.1:3001/api/authorization/register"});
-})
-
-//  MIDDLEWARES
-router.use(express.json());
-router.use(cookieParser())
-router.use(express.urlencoded({extended:true}));
-
-//  METHOD POST
-router.post('/login',login);
-router.post('/register',register);
-router.post('/auth',perms.auth,auth)
-
 // Functions
+const help = (req,res) => {
+    res.status(200).json({message: "Ruta de autorizacion.",loginRuta: "127.0.0.1:3001/api/authorization/login", registerRuta: "127.0.0.1:3001/api/authorization/register"});
+}
 
-async function auth(req, res) {
+const auth = async (req, res) => {
     res.json({status:"ok",message:"autenticacion aprobada"});
 }
 
-async function login(req, res) {
+const login = async (req, res) => {
     const data = req.body;
 
     if(!data.correo || !data.password) {
@@ -56,9 +42,10 @@ async function login(req, res) {
         });
 
         const cookieOption = {
-            expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRES * 24 * 60 * 60 * 1000)
+            expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRES * 24 * 60 * 60 * 1000),
+            httpOnly: true
         }
-
+        
         res.cookie('jwt',token,cookieOption);
         return res.status(200).json({status:"ok",message:"Usuario autenticado"});
     }catch(error){
@@ -67,17 +54,18 @@ async function login(req, res) {
     }
 }
 
-async function register(req, res) {
+const register = async (req, res) => {
     const data = req.body;
     const salt = await bcrypt.genSalt(5);
     const hashPassword = await bcrypt.hash(req.body.password,salt)
 
     try {
-        await connection.query('INSERT INTO users(correo,nombre,apellido,password,curp,`createdAt`,`updatedAt`) VALUES (?,?,?,?,?,now(),now())',[
+        await connection.query('INSERT INTO users(correo,nombre,apellido,password,clave_lector,curp,`createdAt`,`updatedAt`) VALUES (?,?,?,?,?,?,now(),now())',[
             data.correo,
             data.nombre,
             data.apellido,
             hashPassword,
+            data.claveElector,
             data.curp
         ])
         res.status(200).json({status: "ok"});
@@ -87,4 +75,9 @@ async function register(req, res) {
     
 }
 
-module.exports = router;
+module.exports = {
+    help,
+    auth,
+    login,
+    register,
+};
