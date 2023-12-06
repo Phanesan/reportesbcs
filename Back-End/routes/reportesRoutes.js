@@ -2,7 +2,7 @@ const { connection } = require('../db');
 
 const addReport = async (req,res) => {
     const data = req.body;
-    //console.log(data);
+    console.log(data);
     
     try {
         if(data.pruebas) {
@@ -13,6 +13,7 @@ const addReport = async (req,res) => {
 
         res.status(200).json({success:"ok"})
     } catch (error) {
+        console.log(error)
         res.status(400).json({success:"failed",message:error})
     }
 }
@@ -29,7 +30,7 @@ const deleteReport = async (req,res) => {
     } catch(error) {
         return res.status(400).json({success:"failed",message:error})
     }
-}
+} 
 
 const searchReport = async (req,res) => {
     const data = req.query.id;

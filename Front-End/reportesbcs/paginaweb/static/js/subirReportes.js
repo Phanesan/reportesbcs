@@ -7,7 +7,7 @@ document.getElementById("reporteDeUsuario").addEventListener("submit",async(e)=>
         "Content-Type" : "application/json"
       },
       body: JSON.stringify({
-        correo: "ruben@a.a",
+        correo: "correo@prueba.com",
         ubicacion: e.target.callePrincipalInput1.value,
         tipo:e.target.categoriaInput1.value,
         comentarios: e.target.comentInput1.value
